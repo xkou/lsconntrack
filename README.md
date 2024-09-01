@@ -1,5 +1,8 @@
 # lsconntrack
 
+need /etc/sysctl.conf add
+`net.netfilter.nf_conntrack_acct = 1`
+
 [![Build Status](https://travis-ci.org/yuuki/lsconntrack.png?branch=master)][travis]
 [![Go Report Card](https://goreportcard.com/badge/github.com/yuuki/lsconntrack)][goreportcard]
 

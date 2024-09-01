@@ -70,8 +70,8 @@ func (c *CLI) Run(args []string) int {
 	flags.Var(&activePorts, "active-port", "")
 	flags.Var(&passivePorts, "pport", "")
 	flags.Var(&passivePorts, "passive-port", "")
-	flags.BoolVar(&numeric, "n", false, "")
-	flags.BoolVar(&numeric, "numeric", false, "")
+	flags.BoolVar(&numeric, "n", true, "")
+	flags.BoolVar(&numeric, "numeric", true, "")
 	flags.BoolVar(&stdin, "stdin", false, "")
 	flags.BoolVar(&json, "json", false, "")
 	flags.BoolVar(&ver, "version", false, "")
@@ -149,7 +149,7 @@ func (c *CLI) PrintHostFlows(flows conntrack.HostFlows, numeric bool, direction 
 	fmt.Fprintln(tw, "Local Address:Port\t <--> \tPeer Address:Port \tInpkts \tInbytes \tOutpkts \tOutbytes")
 	for _, flow := range flows {
 		if flow.HasDirection(direction) {
-			continue
+			//	continue
 		}
 		if !numeric {
 			flow.ReplaceLookupedName()
